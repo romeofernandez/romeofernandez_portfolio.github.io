@@ -1,0 +1,58 @@
+.portfolio details summary {
+  font-size: 1.1rem;
+  font-weight: 800;
+  cursor: pointer;
+  list-style: none; /* hide default triangle in some browsers */
+  padding: 8px 0;
+}
+
+.portfolio details[open] summary {
+  border-bottom: 1px solid #ccc;
+}
+
+.portfolio-table {
+  width: 100%;
+  max-width: 900px;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-family: Arial, sans-serif;
+}
+
+.portfolio-table tr {
+  border-bottom: 1px solid #000;
+}
+
+.portfolio-table td {
+  padding: 12px;
+  vertical-align: middle;
+}
+
+.col-company {
+  width: 20%;
+  font-weight: 600;
+}
+
+.col-icon {
+  width: 12%;
+  text-align: center;
+}
+
+.col-details {
+  width: 68%;
+}
+
+.project-name {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.project-link {
+  display: block;
+}
+
+.project-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Portfolio Gallery</title>
+
+  <!-- ====== Minimal, clean CSS ====== -->
+  <style>
+    :root{
+      --bg:#0b0f14;           /* dark backdrop */
+      --card:#121821;         /* card bg */
+      --text:#e8edf2;         /* primary text */
+      --muted:#9fb0c2;        /* secondary text */
+      --accent:#69d2f7;       /* accent */
+      --grid-gap: 18px;
+      --radius:16px;
+      --shadow: 0 6px 20px rgba(0,0,0,.35);
+    }
+    html,body{height:100%;}
+    body{
+      margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      background: radial-gradient(1200px 900px at 15% 10%, #0d1520 0%, #0b0f14 40%, #06090d 100%);
+      color:var(--text);
+    }
+
+    .site-wrap{max-width:1200px; margin:48px auto; padding:0 20px;}
+    header h1{margin:0 0 6px; letter-spacing:.4px; font-size: clamp(24px, 3.5vw, 36px)}
+    header p{margin:0 0 26px; color:var(--muted)}
+
+    /* Gallery grid */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: var(--grid-gap);
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+      border:1px solid rgba(255,255,255,.06);
+      border-radius: var(--radius);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .card:hover{ transform: translateY(-3px); border-color: rgba(105,210,247,.45); box-shadow: 0 10px 24px rgba(0,0,0,.5)}
+    .thumb{ display:block; position:relative; aspect-ratio: 16 / 10; background:#0a0f14;}
+    .thumb img{ width:100%; height:100%; object-fit: cover; display:block; }
+
+    .meta{ padding:12px 14px 14px;}
+    .title{ font-weight:600; line-height:1.2; }
+    .source{ color:var(--muted); font-size:.9rem; margin-top:6px; display:flex; align-items:center; gap:8px;}
+    .source a{ color:var(--accent); text-decoration: none;}
+    .source a:hover{ text-decoration: underline; }
+
+    /* Lightbox modal */
+    .lightbox{ position: fixed; inset:0; background: rgba(0,0,0,.85); display:none; align-items:center; justify-content: center; padding: 24px; z-index:9999; }
+    .lightbox.open{ display:flex; }
+
+    .viewer{ max-width:min(92vw, 1400px); max-height: 88vh; position: relative;}
+    .viewer img{ max-width:100%; max-height: 88vh; width:auto; height:auto; display:block; border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,.55); }
+
+    .controls{ position:absolute; inset:0; display:flex; align-items:center; justify-content:space-between; pointer-events:none; }
+    .nav-btn, .close-btn{
+      pointer-events: auto; user-select:none; cursor:pointer; border:none; outline:none; 
+      background: rgba(255,255,255,.12); color:#fff; 
+      width:44px; height:44px; display:grid; place-items:center; border-radius: 12px; 
+      backdrop-filter: blur(6px);
+      transition: background .15s ease, transform .15s ease;
+    }
+    .nav-btn:hover, .close-btn:hover{ background: rgba(255,255,255,.2); transform: translateY(-1px) }
+
+    .prev{ position:absolute; left:-56px; }
+    .next{ position:absolute; right:-56px; }
+    .topbar{ position:absolute; top:-56px; right:0; display:flex; gap:8px; align-items:center; }
+
+    .caption{ position:absolute; left:0; right:0; bottom:-46px; text-align:center; color:#cfe7fa; font-size: .95rem; }
+
+    @media (max-width: 840px){
+      .prev{left:0}
+      .next{right:0}
+      .topbar{top: -52px}
+    }
+  </style>
+</head>
+<body>
+  <div class="site-wrap">
+    <header>
+      <h1>Portfolio</h1>
+      <p>Thumbnails with titles. Click any card to view the full image. Use ←/→ or tap edges to navigate, and press Esc to close.</p>
+    </header>
+
+    <!-- ====== Gallery Grid ====== -->
+    <section class="grid" id="gallery" aria-label="Portfolio Gallery">
+      <!--
+        HOW TO USE
+        - Duplicate any .card block below.
+        - thumb src = small/medium image for grid (fast to load).
+        - data-full   = full-resolution image URL (e.g., from DeviantArt image page -> open image in new tab -> copy image URL).
+        - data-title  = caption/title for the lightbox.
+        - Optional: .source link back to your DA page.
+      -->
+
+      <article class="card">
+        <a class="thumb" href="#" data-index="0" data-full="https://www.deviantart.com/rcfworks/art/cubeswitch-UI-UX-designs-713122876" data-title="Ambient Scene #1">
+          <img loading="lazy" alt="Ambient Scene #1 thumbnail" src="https://www.deviantart.com/rcfworks/art/cubeswitch-UI-UX-designs-713122876" width="600" height="376">
+        </a>
+        <div class="meta">
+          <div class="title">Ambient Scene #1</div>
+          <div class="source">From <a href="#" title="DeviantArt page">DeviantArt</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="thumb" href="#" data-index="1" data-full="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=2000" data-title="Character Concept – Gabriel">
+          <img loading="lazy" alt="Character concept thumbnail" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600" width="600" height="376">
+        </a>
+        <div class="meta">
+          <div class="title">Character Concept – Gabriel</div>
+          <div class="source">From <a href="#" title="DeviantArt page">DeviantArt</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="thumb" href="#" data-index="2" data-full="https://images.unsplash.com/photo-1517816743773-6e0fd518b4a6?w=2000" data-title="Environment Paintover">
+          <img loading="lazy" alt="Environment paintover thumbnail" src="https://images.unsplash.com/photo-1517816743773-6e0fd518b4a6?w=600" width="600" height="376">
+        </a>
+        <div class="meta">
+          <div class="title">Environment Paintover</div>
+          <div class="source">From <a href="#" title="DeviantArt page">DeviantArt</a></div>
+        </div>
+      </article>
+
+      <!-- Add more .card items as needed -->
+    </section>
+  </div>
+
+  <!-- ====== Lightbox ====== -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" aria-hidden="true">
+    <div class="viewer">
+      <div class="topbar">
+        <button class="close-btn" id="btnClose" aria-label="Close (Esc)">✕</button>
+      </div>
+      <img id="fullImg" alt="Full size artwork" src="" />
+      <div class="controls">
+        <button class="nav-btn prev" id="btnPrev" aria-label="Previous (←)">❮</button>
+        <button class="nav-btn next" id="btnNext" aria-label="Next (→)">❯</button>
+      </div>
+      <div class="caption" id="caption"></div>
+    </div>
+  </div>
+
+  <!-- ====== Vanilla JS (no frameworks) ====== -->
+  <script>
+    (function(){
+      const grid = document.getElementById('gallery');
+      const lightbox = document.getElementById('lightbox');
+      const fullImg = document.getElementById('fullImg');
+      const caption = document.getElementById('caption');
+      const btnPrev = document.getElementById('btnPrev');
+      const btnNext = document.getElementById('btnNext');
+      const btnClose = document.getElementById('btnClose');
+
+      let items = []; // populated from .thumb anchors
+      let current = 0;
+
+      function collect(){
+        items = Array.from(grid.querySelectorAll('.thumb')).map((el, i) => ({
+          index: i,
+          el,
+          full: el.dataset.full,
+          title: el.dataset.title || ''
+        }));
+      }
+
+      function openAt(idx){
+        current = (idx + items.length) % items.length;
+        const it = items[current];
+        if(!it) return;
+        fullImg.src = '';
+
+        // Preload to avoid flash
+        const tmp = new Image();
+        tmp.onload = () => { fullImg.src = it.full; };
+        tmp.src = it.full;
+
+        caption.textContent = it.title;
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden'; // prevent background scroll
+      }
+
+      function close(){
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        fullImg.src = '';
+      }
+
+      function next(){ openAt(current + 1); }
+      function prev(){ openAt(current - 1); }
+
+      // Init
+      collect();
+
+      // Click handlers on thumbnails
+      grid.addEventListener('click', (e) => {
+        const a = e.target.closest('.thumb');
+        if(!a) return;
+        e.preventDefault();
+        const idx = Number(a.dataset.index || 0);
+        openAt(idx);
+      });
+
+      // Controls
+      btnClose.addEventListener('click', close);
+      btnNext.addEventListener('click', next);
+      btnPrev.addEventListener('click', prev);
+
+      // Close when clicking dark backdrop
+      lightbox.addEventListener('click', (e)=>{
+        if(e.target === lightbox) close();
+      });
+
+      // Keyboard support
+      window.addEventListener('keydown', (e)=>{
+        if(!lightbox.classList.contains('open')) return;
+        if(e.key === 'Escape') close();
+        if(e.key === 'ArrowRight') next();
+        if(e.key === 'ArrowLeft') prev();
+      });
+
+      // Optional: swipe on mobile (simple)
+      let startX = 0; let down = false;
+      lightbox.addEventListener('pointerdown', (e)=>{ down=true; startX=e.clientX;});
+      lightbox.addEventListener('pointerup', (e)=>{
+        if(!down) return; down=false;
+        const dx = e.clientX - startX;
+        if(Math.abs(dx) > 40){ dx < 0 ? next() : prev(); }
+      });
+
+    })();
+  </script>
+</body>
+</html>
