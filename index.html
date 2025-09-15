@@ -1,84 +1,109 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>About</title>
-<style>
-  :root{
-    --bg:#0b1220; --fg:#d6e3ff; --muted:#9fb0d9; --accent:#7aa2ff; --card:#0f182b;
-    --max:1000px;
-  }
-  *{box-sizing:border-box}
-  body{margin:0; font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";}
-  .section{background:var(--bg); color:var(--fg); padding:clamp(24px,4vw,56px)}
-  .container{max-width:var(--max); margin-inline:auto; display:grid; gap:28px; align-items:start}
-  @media (min-width: 880px){ .container{grid-template-columns: 3fr 2fr; gap:40px} }
-
-  h2{font-size:clamp(28px,3vw,36px); line-height:1.2; margin:0 0 8px}
-  .sub{color:var(--muted); margin:0 0 18px}
-  p{margin:0 0 14px; color:var(--fg)}
-  .tech-title{margin-top:16px; font-weight:600}
-  .tech{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px 18px; list-style:none; padding:0; margin:8px 0 0}
-  .tech li{position:relative; padding-left:18px; color:var(--muted)}
-  .tech li::before{content:"▹"; position:absolute; left:0; color:var(--accent)}
-
-  .photo{position:relative; max-width:340px; margin:auto}
-  .photo .frame{
-    aspect-ratio: 4/5;
-    background:var(--card) center/cover no-repeat;
-    border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,.45);
-    border:1px solid rgba(122,162,255,.25);
-    transform:translateY(0); transition:transform .25s ease;
-  }
-  .photo .outline{
-    position:absolute; inset:10px -10px -10px 10px; border-radius:16px;
-    border:1px solid rgba(122,162,255,.35); pointer-events:none;
-  }
-  .photo:hover .frame{ transform:translateY(-3px) }
-  .note{font-size:.9rem; color:var(--muted); margin-top:10px; text-align:center}
-  @media (prefers-reduced-motion: reduce){
-    .photo .frame{transition:none}
-  }
-  a{color:var(--accent); text-decoration:none}
-  a:focus-visible, .photo:focus-within .frame{outline:2px solid var(--accent); outline-offset:2px}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Romeo Fernandez</title>
 </head>
 <body>
-<section id="about" class="section">
-  <div class="container" role="region" aria-labelledby="about-title">
-    <div>
-      <h2 id="about-title">About</h2>
-      <p class="sub">I build accessible, performant interfaces with a design-first mindset.</p>
 
-      <p>
-        I’m a front-end engineer who enjoys crafting pixel-perfect UI and smooth UX.
-        My sweet spot is where design and engineering meet: creating experiences that
-        look great and feel even better.
-      </p>
-      <p>
-        Recently, I’ve been focused on component systems, performance budgets,
-        and accessibility best practices (<a href="#">WCAG</a>, semantic HTML, ARIA).
-      </p>
+  <!-- Header -->
+  <header>
+    <h1>ROMEO FERNANDEZ</h1>
+  </header>
 
-      <div class="tech-title">Technologies I’ve been using:</div>
-      <ul class="tech" aria-label="Technologies">
-        <li>JavaScript (ESNext)</li>
-        <li>TypeScript</li>
-        <li>React</li>
-        <li>Node.js</li>
-        <li>HTML &amp; CSS</li>
-        <li>Accessibility (a11y)</li>
-      </ul>
-    </div>
+  <!-- Major paragraph -->
+  <main>
+    <p>
+      Versatile and experienced Game Developer and Multimedia Designer with over 15 years of hands-on experience in Unity, AIR, Flash, and modern web technologies. Proven ability to deliver end-to-end solutions for mobile, desktop, web, and VR platforms. Skilled in both programming and visual design, with a strong background in game frameworks, UI/UX, and animation. Also experienced in teaching and mentoring aspiring developers.
+    </p>
 
-    <figure class="photo">
-      <!-- Replace with your own image URL -->
-      <div class="frame" style="background-image:url('https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=900&auto=format&fit=crop');"></div>
-      <div class="outline" aria-hidden="true"></div>
-      <figcaption class="note">Hi! That’s me enjoying clean UI and good coffee.</figcaption>
-    </figure>
-  </div>
-</section>
+    <h2>
+        EMPLOYMENT HISTORY
+    </h2>
+
+    <h3>Lead Developer – iCognition  : Feb 2018 – July 2025</h3>
+    <ul>
+<li>Developed Unity and AIR-based business solutions for desktop and mobile applications</li>
+<li>Architected custom frameworks and business logic in Unity</li>
+<li>Delivered cross-platform applications using React, JavaScript, ActionScript, AIR, and SQLite</li>
+<li>Created wireframes, designs, and animations using AnimateCC</li>
+</ul>
+
+<h3>Unity Developer – InventPlay LLC (Project-Based)  :  2021 – 2022</h3>
+    <ul>
+<li>Maintained Unity codebase and integrated Naninovel framework</li>
+<li>Created graphical assets in Photoshop</li>
+</ul>
+
+<h3>VR Developer – Saadi (Project-Based) :  2021</h3>
+    <ul>
+<li>Developed a virtual reality application using Unity</li>
+</ul>
+
+<h3>Game Developer – Wiply (Project-Based) :  2020</h3>
+    <ul>
+<li>Created casual browser games using Phaser and TypeScript</li>
+</ul>
+
+<h3>Senior Flash Developer / Programmer / Designer – iByngo Inc. :  2016 – Jan 2018</h3>
+    <ul>
+<li>Built casino and mobile games using Unity, Flash, Haxe, and HTML5 via OpenFL</li>
+<li>Designed and programmed Flash-based applications and games</li>
+<li>Implemented OOP design patterns into existing ActionScript frameworks</li>
+<li>Built reusable frameworks in AS3 and Haxe for mobile game development</li>
+<li>Collaborated on backend systems integration (Java, C++, PHP)</li>
+</ul>
+
+<h3>Senior Flash Developer / Designer – FlowstateMedia :  Feb 2014 – Nov 2016</h3>
+    <ul>
+<li>Developed desktop and mobile casino games in Unity and Flash</li>
+<li>Streamlined server communication and video streaming in Flash apps</li>
+<li>Enhanced Flash frameworks with modern design patterns</li>
+<li>Coordinated backend integration with cross-platform technologies</li>
+</ul>
+
+<h3>Senior Flash Developer – PJHoldings: Maintained AIR/Flash casino games for kiosks and web</h3>
+<h3>Senior Flash Developer – Goldenway: Maintained web-based casino game apps</h3>
+<h3>Senior Flash Developer – Think Innovations: Built mobile apps using JavaScript and AS3</h3>
+
+<h2>OTHER EXPERIENCE</h2>
+<ul>
+    <li>Game Development Professor – iACADEMY (2011–2016)
+ Taught game programming and design using Flash, AIR, Unity, Starling, and Feathers</li>
+ <li>2DKit Haxe Developer - Migrated AS3 game code to Haxe for HTML5 output</li>
+ <li>Asset Creation (3D Pipeline) - Concept Art → Modeling/Sculpting → Retopology → UV Mapping/Texturing → Animation</li>
+ <li>2D Asset Creation</li>
+ <li>UI/UX Design & Flow</li>
+ <li>Graphic Design & Character Creation</li>
+</ul>
+
+<h2>TECHNICAL SKILLS</h2>
+<ul>
+    <li>Game Engines & Frameworks - Unity • Godot • Unreal Engine • AIR/AS3 • Starling • Feathers • Haxe OpenFL • Flutter</li>
+ <li>Programming & Scripting - C# • GDScript • ActionScript 3.0 • JavaScript (ES6 and older) • Dart • OpenFL</li>
+ <li>Web & Server Technologies - React • React Native • Node.js</li>
+ <li>Graphics & Animation Tools - Blender • AnimateCC • Photoshop • Illustrator • Krita • Clip Studio • Aseprite • Substance Painter</li>
+ 
+</ul>
+
+<h2>ONLINE PORTFOLIO</h2>
+<p>Game Projects (Developed from the ground up):</p>
+<ul>
+    <li>Tongits Live (AIR) - https://itunes.apple.com/us/app/tongits-live/id1218394845?mt=8</li>
+    <li>Bingo Classic (AIR) -https://itunes.apple.com/us/app/bingo-classic/id1291069958?mt=8</li>
+    <li>Bingo 75 (AIR) - https://itunes.apple.com/us/app/hey-bingo-classic-bingo-game/id1218363581?mt=8</li>
+    <li>Hey SpinGo (AIR) - https://itunes.apple.com/us/app/hey-spingo-75-ball-spin-bingo-game/id1246999608?mt=8</li>
+    <li>Word Warrior (AIR) - https://itunes.apple.com/us/app/word-warrior-word-search-brain-game/id1214505136?mt=8</li>
+    <li>Adore Romance (Unity) - https://apps.apple.com/us/app/adore-stories-romance-games/id1608227835</li>
+</ul>
+<p>Art portfolio</p>
+<ul>
+    <li>DeviantArt - rcfworks - https://rcfworks.deviantart.com/gallery/</li>
+    <li>DeviantArt - rcfworks - https://eulochi.deviantart.com/gallery/</li>
+</ul>
+    
+  </main>
+
 </body>
 </html>
